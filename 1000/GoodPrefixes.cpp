@@ -1,43 +1,37 @@
 #include<iostream>
-#include<algorithm>
-  using namespace std;
-  int main()
+using namespace std;
+int main ()
+{
+  int t;
+  cin>>t;
+  while (t--)
   {
-    long long int testCase;
-    cin>>testCase;
-    while(testCase--)
+    long long int n, max=0, sum=0, answer=0;
+    cin>>n;
+    for(int i=0; i<n; i++)
     {
-      int n;
-      cin>>n;
-      long long int a[n], sum=0, answer=0;
-      for(int i=0; i<n; i++)
+      long long int e;
+      cin>>e;
+      if(e>max)
       {
-        cin>>a[i];
+        sum+=max;
+        max=e;
       }
-      for(int i=0; i<n; i++)
+      else
       {
-        for(int j=0; j<=i; j++)
-        {
-          for(int k=0; k<=i; k++)
-          {
-            if(a[0]!=0)
-            {
-              continue;
-            
-            }
-            if(j!=k)
-            {
-              sum+=a[k];
-            }
-          }
-          if(sum==a[j])
-          {
-            cout<<endl<<"a["<<j<<"] : "<<a[j]<<endl;
-            answer++;
-          }
-          sum=0;
-        }
+        sum+=e;
+
       }
-      cout<<"Answer : "<<answer<<endl;
+ //     cout<<"Sum : "<<sum<<endl;
+      
+      if(sum==max)
+      {
+        answer++;
+  //     cout<<"Answer : "<<answer<<endl;
+      }
     }
+   cout<<answer<<endl;
+
   }
+  
+}
